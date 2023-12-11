@@ -1,7 +1,4 @@
-import Classes.EspecificacoesComponente;
-import Classes.Maquina;
-import Classes.MetricaComponente;
-import Classes.TipoComponente;
+import Classes.*;
 import com.github.seratch.jslack.Slack;
 import com.github.seratch.jslack.api.webhook.Payload;
 import com.github.seratch.jslack.api.webhook.WebhookResponse;
@@ -36,19 +33,21 @@ public class AcessoJDBC {
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     public void insertNick(String nickN, Object tempo) {
-        con.update("INSERT INTO Player(Nome, Time) VALUES (?, ?)", nickN, tempo);
+        con.update("INSERT INTO Player(Nome, Tempo) VALUES (?, ?)", nickN, tempo);
     }
 
-    public void obterJogador(String nickN) {
-        List<Object> jogadorTempo = con.queryForList("SELECT * FROM Player WHERE Nome = ?", Object.class, nickN);
-        System.out.println(jogadorTempo);
+    public void obterJogador(String temp) {
+        List<Object> jogadores = con.queryForList(
+                "SELECT Nome FROM Player WHERE Tempo = ?", Object.class, temp);
+        System.out.println(jogadores);
     }
 
     ;
 
     public void obterJogador() {
-        List<Object> JogadorTempo = con.queryForList("SELECT * FROM Player", Object.class);
-        System.out.println(JogadorTempo);
+        List<Object> jogadores = con.queryForList(
+                "SELECT Nome FROM Player GROUP BY Nome", Object.class);
+        System.out.println(jogadores);
     }
 
     ;

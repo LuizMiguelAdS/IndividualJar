@@ -9,9 +9,9 @@ Classes\Representante.class
 Classes\Endereco.class
 Classes\Maquina.class
 Classes\TipoUsuario.class
+Classes\Player.class
 ScriptInsercao.class
 Classes\Componente.class
-Classes\Jogador.class
 Classes\LanHouse.class
 ConexaoSQL.class
 Classes\Empresa.class

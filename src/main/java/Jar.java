@@ -12,6 +12,46 @@ public class Jar {
 
 
     public static void main(String[] args) {
+        String temp;
+        System.out.println("""
+                                           @@@@
+                                         @@@@
+                                       @@@@     @@@@
+                                    @@@@     @@@@  @@@@
+                                 @@@@     @@@@      @@@@
+                               @@@@    @@@@    @@@@@     @@@@
+                            @@@@     @@@@   @@@@       @@@@   \s
+                          @@@@    @@@@   @@@@       @@@@@    @@@@\s
+                        @@@@    @@@@   @@@@      @@@@@    @@@@   @@@@
+                      @@@@   @@@@    @@@@      @@@@@   @@@@       @@@@
+                    @@@@    @@@@   @@@@     @@@@@   @@@@          @@@@
+                  @@@@    @@@@    @@@@    @@@@   @@@@             @@@@
+                  @@@@    @@@@    @@@@    @@@@   @@@@             @@@@
+                  @@@@    @@@@    @@@@    @@@@   @@@@             @@@@
+                  @@@@    @@@@    @@@@    @@@@   @@@@             @@@@
+                  @@@@    @@@@    @@@@    @@@@   @@@@             @@@@
+                  @@@@    @@@@    @@@@    @@@@   @@@@             @@@@
+                  @@@@    @@@@    @@@@    @@@@   @@@@        @@@@ @@@@
+                  @@@@    @@@@    @@@@    @@@@   @@@@       @@@@  @@@@
+                  @@@@    @@@@    @@@@    @@@@   @@@@    @@@@   @@@@
+                  @@@@    @@@@    @@@@    @@@@   @@@@  @@@@    @@@@
+                   @@@@   @@@@    @@@@    @@@@   @@@@@@@@@   @@@@
+                     @@@@ @@@@    @@@@    @@@@     @@@@    @@@@
+                      @@@@@@@@    @@@@    @@@@          @@@@
+                          @@@@    @@@@    @@@@      @@@@
+                           @@@    @@@@    @@@@    @@@@
+                                  @@@@    @@@@@@@@@
+                                   @@@    @@@@@@
+                                          @@@@
+                {ByteGuard.Lm}
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                """);
         System.out.println("// ByteGuard //");
         System.out.println("// Faça login //");
         System.out.println("Insira o código de acesso de sua lanhouse: ");
@@ -40,8 +80,9 @@ public class Jar {
             nickname = nick.nextLine();
             System.out.println("Seu nick é esse S/N: " + nickname);
             resposta = nick.nextLine();
+            System.out.println(resposta);
 
-        } while (resposta != "S");
+        } while (!resposta.equals("S") && !resposta.equals("s"));
 
         String nomeUsuario = acesso.buscarUsuario(email, senha);
         System.out.println(String.format("""
@@ -83,7 +124,7 @@ public class Jar {
                         |                       Escolha uma opção:                        |
                         |=================================================================|
                         | 1 - Acessar Historico de Players                                |
-                        | 2 - Acessar Historico deste Player                              |
+                        | 2 - Descobrir Player Por tempo                                  |
                         | 3 - Cadastrar/Localizar componentes e começar a busca de dados  |
                         | 4 - Mudar de conta                                              |
                         | 5 - Sair                                                        |
@@ -93,7 +134,11 @@ public class Jar {
                 if (escAdmin == 1) {
                     acesso.obterJogador();
                 } else if (escAdmin == 2) {
-                    acesso.obterJogador(nickname);
+                    System.out.println("""
+                            escreva a data seguindo este padrão : ano-mes-dia hora:minuto:segundo :
+                            não obrigatorios mas a ordem precisa ser mantida""");
+                    temp = nick.nextLine();
+                    acesso.obterJogador(temp);
                 } else if (escAdmin == 3) {
 
                     // '''''''''''''''''''''''''''''''''''''''''''''''''''''''''//
